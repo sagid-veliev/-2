@@ -17,6 +17,28 @@ function Matrix() {
       document.getElementById('matrix').innerHTML = matrix; 
 }
 
+function graph() {
+        var n = document.getElementById("n").value;
+	var val = document.getElementsByName("value");
+	var schet = 0;
+	var arr = [];
+	for (var i = 0; i < n; i++){
+	      arr[i] = [];
+	      for (var j = 0; j < n; j++){
+		    arr[i][j] = val[schet].value;
+		    schet++;
+	      }	
+	}
+	for (var i = 0; i < n; i++){
+	      for (var j = 0; j < n; j++){
+	            if(arr[i][j] != arr[j][i]) {
+			return alert("ГРАФ НЕ ЯВЛЯЕТСЯ НЕОРИЕНТИРОВАННЫМ");
+		    }
+	      }	
+	}
+        return true;        
+}   
+
 function reflexivity() {
         var n = document.getElementById("n").value;
 	var val = document.getElementsByName("value");  // получаем коллекцию всех элементов 
@@ -54,6 +76,7 @@ function antireflex() {
 }
 
 function result() {
+     graph();
      Matrix();
      reflexivity();
      antireflex();
