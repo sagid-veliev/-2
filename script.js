@@ -17,7 +17,45 @@ function Matrix() {
       document.getElementById('matrix').innerHTML = matrix; 
 }
 
+function reflexivity() {
+        var n = document.getElementById("n").value;
+	var val = document.getElementsByName("value");  // получаем коллекцию всех элементов 
+	var schet = 0;
+        var result = 'отношение является РЕФЛЕКСИВНЫМ';
+	for (var i = 0; i < n; i++){
+             for (var j = 0; j < n; j++){
+	           if(i == j) {
+             		if(val[schet].value != 1) {
+                                result = 'Отношение НЕ является РЕФЛЕКСИВНЫМ';
+                        }
+           	   }
+                   schet++;
+              }	
+	}
+        document.getElementById('reflexivity').innerHTML = result;
+}
+
+function antireflex() {
+        var n = document.getElementById("n").value;
+	var val = document.getElementsByName("value");  // получаем коллекцию всех элементов 
+	var schet = 0;
+        var result = 'Отношение является АНТИРЕФЛЕКСИВНЫМ';
+	for (var i = 0; i < n; i++){
+             for (var j = 0; j < n; j++){
+	           if(i == j) {
+             	       if(val[schet].value == 1) {
+                           result = 'Отношение НЕ является АНТИРЕФЛЕКСИВНЫМ';
+		       }		
+                   }
+                   schet++;
+              }
+        }
+        document.getElementById('antireflex').innerHTML = result;	
+}
+
 function result() {
      Matrix();
+     reflexivity();
+     antireflex();
 }
 
