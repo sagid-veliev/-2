@@ -75,6 +75,29 @@ function antireflex() {
         document.getElementById('antireflex').innerHTML = result;	
 }
 
+function symmetry() {
+        var n = document.getElementById("n").value;
+	var val = document.getElementsByName("value");
+	var schet = 0;
+	var result = 'Отношение является СИММЕТРИЧНЫМ';
+	var arr = [];
+	for (var i = 0; i < n; i++){
+	      arr[i] = [];
+	      for (var j = 0; j < n; j++){
+		    arr[i][j] = val[schet].value;
+		    schet++;
+	      }	
+	}
+	for (var i = 0; i < n; i++){
+	      for (var j = 0; j < n; j++){
+	            if(arr[i][j] != arr[j][i]) {
+			result = 'Отношение не является СИММЕТРИЧНЫМИ';
+		    }
+	      }	
+	}
+	document.getElementById('symmetry').innerHTML = result;	
+}  
+
 function result() {
      graph();
      Matrix();
